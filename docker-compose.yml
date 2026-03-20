@@ -1,0 +1,9 @@
+services:
+  personal-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: personal-portfolio
+    ports:
+      - "3005:80"
+    restart: unless-stopped
