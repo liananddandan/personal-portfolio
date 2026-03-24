@@ -3,15 +3,15 @@ import type { ProjectCard } from "../types/projectCard"
 export const projectCards: ProjectCard[] = [
     {
         name: "Multi-Tenant Microservices Platform",
-        subtitle: "Full-stack multi-tenant system with API gateway and event-driven architecture",
+        subtitle: "Full-stack system with API gateway, event-driven communication, and containerized deployment",
         summary:
-            "Designed and built a multi-tenant backend system with clear service boundaries and scalable architecture.",
+            "Designed and built a multi-tenant microservices system using ASP.NET Core, with a centralized API gateway and event-driven communication between services.",
         highlights: [
-            "Designed a scalable multi-tenant architecture",
-            "Implemented JWT authentication via API gateway",
-            "Enabled event-driven communication using RabbitMQ",
-            "Deployed portal, admin panel, and backend APIs",
-            "Built frontend portal and admin panel using React",
+            "Implemented multi-tenant architecture with data isolation and permission boundaries",
+            "Built API Gateway using YARP for routing, authentication, and request handling",
+            "Enabled asynchronous communication using RabbitMQ",
+            "Containerized services with Docker and deployed on VPS using Docker Compose and Nginx",
+            "Developed frontend portal and admin panel using React",
         ],
         actions: [
             {
@@ -53,14 +53,14 @@ export const projectCards: ProjectCard[] = [
         ],
     },
     {
-        name: "AI Knowledge Copilot",
-        subtitle: "RAG-based assistant with .NET backend and FastAPI service",
+        name: "Transcript-Based RAG Assistant",
+        subtitle: "RAG-based assistant with .NET backend and Python rerank service",
         summary:
-            "Built an AI assistant with RAG, combining a .NET backend with a FastAPI RAG service.",
+            "Built a RAG-based assistant combining a .NET backend with a Python service for cross-encoder reranking, enabling context-aware responses over structured data.",
         highlights: [
-            "LLM orchestration in ASP.NET Core",
-            "RAG service with vector-based retrieval",
-            "Enabled structured memory handling",
+            "Semantic search with pgvector and context expansion",
+            "Cross-encoder reranking with FastAPI and Sentence-Transformers",
+            "Local LLM integration (Ollama) with citation-based responses",
         ],
         actions: [
             {

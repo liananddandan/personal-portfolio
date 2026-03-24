@@ -63,16 +63,20 @@ export const projects: ProjectItem[] = [
   },
 
   {
-    name: "AI Knowledge Copilot",
-    subtitle: "RAG-based AI assistant with .NET backend and FastAPI service",
+    name: "Transcript-Based RAG Assistant",
+    subtitle: "RAG-based assistant with .NET backend and Python rerank service",
     modules: [
       {
-        name: "LLM Gateway",
-        description: "ASP.NET Core service for orchestration and tool calling",
+        name: "Backend API",
+        description: "ASP.NET Core service implementing retrieval, context expansion, and chat pipeline",
       },
       {
-        name: "RAG Service",
-        description: "FastAPI service for embedding, vector search, and retrieval",
+        name: "Rerank Service",
+        description: "FastAPI service using cross-encoder models to rerank retrieved results",
+      },
+      {
+        name: "LLM Integration",
+        description: "Local LLM (Ollama) for response generation with citation support",
       },
     ],
     links: [

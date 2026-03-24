@@ -1,13 +1,30 @@
+import { useEffect, useRef, useState } from "react"
 import { ChevronDown, ArrowUpRight } from "lucide-react"
 import { projects } from "../data/projects"
 
 export default function Header() {
+    const [open, setOpen] = useState(false)
+    const containerRef = useRef<HTMLDivElement | null>(null)
 
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                containerRef.current &&
+                !containerRef.current.contains(event.target as Node)
+            ) {
+                setOpen(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [])
 
     return (
         <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-                {/* Left: avatar + brand */}
                 <div className="flex items-center gap-3">
                     <div className="h-14 w-14 overflow-hidden rounded-full bg-slate-100 ring-1 ring-slate-200">
                         <img
@@ -28,17 +45,37 @@ export default function Header() {
                 </div>
 
                 <nav className="flex items-center">
-                    <div className="relative group">
-                        <div className="flex cursor-pointer items-center gap-2 text-sm font-bold text-slate-700 transition hover:text-indigo-600">
+                    <div
+                        ref={containerRef}
+                        className="relative"
+                        onMouseEnter={() => {
+                            if (window.innerWidth >= 1024) setOpen(true)
+                        }}
+                        onMouseLeave={() => {
+                            if (window.innerWidth >= 1024) setOpen(false)
+                        }}
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setOpen((prev) => !prev)}
+                            className="flex items-center gap-2 text-sm font-bold text-slate-700 transition hover:text-indigo-600"
+                            aria-expanded={open}
+                            aria-haspopup="true"
+                        >
                             <span>Explore Projects</span>
-                            <ChevronDown className="h-4 w-4 transition group-hover:translate-y-[1px]" />
-                        </div>
+                            <ChevronDown
+                                className={`h-4 w-4 transition duration-150 ${open ? "rotate-180" : ""}`}
+                            />
+                        </button>
 
-                        <div className="invisible absolute right-0 top-full w-[960px] pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-                            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-lg shadow-slate-200/15">
-                                <div className="grid grid-cols-3 divide-x divide-slate-200">
+                        <div
+                            className={`absolute right-0 top-full z-50 pt-2 transition-all duration-150 ${open ? "visible opacity-100" : "invisible opacity-0"
+                                }`}
+                        >
+                            <div className="w-[92vw] max-w-[960px] rounded-2xl border border-slate-200 bg-white p-3 shadow-lg shadow-slate-200/15">
+                                <div className="grid grid-cols-1 divide-y divide-slate-200 md:grid-cols-3 md:divide-x md:divide-y-0">
                                     {projects.slice(0, 3).map((project, index) => (
-                                        <div key={index} className="px-6 py-5">
+                                        <div key={index} className="px-4 py-5 md:px-6">
                                             <div className="text-sm font-semibold text-slate-900">
                                                 {project.name}
                                             </div>
@@ -82,7 +119,8 @@ export default function Header() {
                                                         href={link.href}
                                                         target="_blank"
                                                         rel="noreferrer"
-                                                        className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-200 hover:text-indigo-600"                                                    >
+                                                        className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-200 hover:text-indigo-600"
+                                                    >
                                                         {link.label}
                                                     </a>
                                                 ))}
@@ -95,6 +133,6 @@ export default function Header() {
                     </div>
                 </nav>
             </div>
-        </header >
+        </header>
     )
 }
