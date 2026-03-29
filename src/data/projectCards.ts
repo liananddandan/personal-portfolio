@@ -2,16 +2,17 @@ import type { ProjectCard } from "../types/projectCard"
 
 export const projectCards: ProjectCard[] = [
     {
-        name: "Multi-Tenant Microservices Platform",
-        subtitle: "Full-stack system with API gateway, event-driven communication, and containerized deployment",
+        name: "Multi-Tenant Retail Operations Platform",
+        subtitle: "Full-stack system for orders, products, and tenant-based business operations",
         summary:
-            "Designed and built a multi-tenant microservices system using ASP.NET Core, with a centralized API gateway and event-driven communication between services.",
+            "Designed and built a multi-tenant retail platform with tenant-specific ordering, product management, and operational workflows.",
         highlights: [
-            "Implemented multi-tenant architecture with data isolation and permission boundaries",
-            "Built API Gateway using YARP for routing, authentication, and request handling",
-            "Enabled asynchronous communication using RabbitMQ",
-            "Containerized services with Docker and deployed on VPS using Docker Compose and Nginx",
-            "Developed frontend portal and admin panel using React",
+            "Implemented multi-tenant architecture with tenant isolation and role-based access control",
+            "Built API Gateway using YARP for routing and authentication",
+            "Enabled asynchronous communication using RabbitMQ and CAP",
+            "Developed order management and product catalog workflows",
+            "Built React frontend with tenant-specific portals and admin dashboard",
+            "Containerized and deployed services using Docker, Nginx, and VPS",
         ],
         actions: [
             {

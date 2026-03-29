@@ -2,18 +2,16 @@ import type { ProjectItem } from "../types/project"
 
 export const projects: ProjectItem[] = [
   {
-    name: "Multi-Tenant Microservices Platform",
-    subtitle: "Full-stack multi-tenant system with API gateway and event-driven architecture",
+    name: "Multi-Tenant Retail Operations Platform",
+    subtitle: "Full-stack system for orders, products, and tenant-based business operations",
     modules: [
       {
         name: "Portal",
         description: "User-facing web application",
-        href: "https://fintrack.chenlis.com/portal",
       },
       {
         name: "Admin",
         description: "Admin dashboard for system management",
-        href: "https://fintrack.chenlis.com/admin",
       },
       {
         name: "Swagger",

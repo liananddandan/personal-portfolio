@@ -75,8 +75,7 @@ export default function LandingPage() {
                                     variants={item}
                                     className="mt-5 text-base leading-7 text-slate-500 lg:text-lg"
                                 >
-                                    .NET engineer focused on backend and AI-powered systems.
-                                    I design scalable systems with clear boundaries, and build full-stack solutions when needed.
+                                    Able to take ownership of a project from architecture to delivery, simplify complex problems into practical solutions, and build scalable systems with clear structure across backend, infrastructure, and frontend.
                                 </motion.p>
 
                                 <motion.div
